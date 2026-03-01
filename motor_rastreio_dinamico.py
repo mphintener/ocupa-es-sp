@@ -40,3 +40,31 @@ texto_exemplo = "Contratamos urgente para conferência de estoque e carga. Salá
 vaga_processada = extrair_dados_vaga_dinamica(texto_exemplo, "https://logistica-sp.com.br/vagas")
 
 print(vaga_processada)
+import os
+import subprocess
+
+def salvar_e_publicar(vaga_processada):
+    arquivo = 'vagas_rastreadas.csv'
+    headers = ["timestamp_captura", "id_origem", "caracteristica_bruta", "salario_ofertado", "qualificacao_exigida", "setor_inferido", "cep_localizacao"]
+    
+    # 1. SALVAR NO CSV
+    arquivo_existe = os.path.isfile(arquivo)
+    with open(arquivo, 'a', newline='', encoding='utf-8') as f:
+        writer = csv.DictWriter(f, fieldnames=headers)
+        if not arquivo_existe:
+            writer.writeheader()
+        writer.writerow(vaga_processada)
+    print(f"✅ Vaga salva em {arquivo}")
+
+    # 2. ENVIAR PARA O GITHUB AUTOMATICAMENTE
+    try:
+        subprocess.run(["git", "add", "vagas_rastreadas.csv"], check=True)
+        subprocess.run(["git", "commit", "-m", f"update: nova vaga capturada {datetime.now().strftime('%d/%m %H:%M')}"], check=True)
+        subprocess.run(["git", "push", "origin", "main"], check=True)
+        print("🚀 Página Ocupações SP atualizada com sucesso!")
+    except Exception as e:
+        print(f"⚠️ Erro ao atualizar o GitHub: {e}")
+
+# Exemplo de como chamar no final do seu loop de captura:
+# if vaga_processada:
+#     salvar_e_publicar(vaga_processada)
