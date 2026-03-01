@@ -1,0 +1,5 @@
+timestamp_captura,id_origem,caracteristica_bruta,salario_ofertado,qualificacao_exigida,setor_inferido,cep_localizacao
+2026-03-01T10:30:00Z,Logistica-Norte-SA,"apoio na separação e conferência de fluxo",2150.00,"Ensino Médio; NR-11",Logística,02120-000
+2026-03-01T11:15:00Z,Varejo-SP-LTDA,"atendimento de frente de loja e reposição",1750.00,"Ensino Médio; Disponibilidade aos sábados",Varejo,01200-000
+2026-03-01T12:00:00Z,Metalurgica-Sul,"operar linha de montagem e acabamento técnico",2800.00,"Curso Técnico Mecânica; Leitura de Desenho",Indústria,04750-000
+2026-03-01T14:45:00Z,Distribuidora-Oeste,"condução de veículo leve para entregas rápidas",2300.00,"CNH B; Curso de Direção Defensiva",Logística,05100-000
