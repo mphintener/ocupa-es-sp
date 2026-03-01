@@ -1,4 +1,4 @@
-# Ocupações SP | Rastreamento Dinâmico de Vacância Real
+# Ocupações SP | Rastreamento Dinâmico de Vagas de Trabalho
 
 Este módulo faz parte do ecossistema **Calculadora do Trecho** e atua como um monitor independente de ofertas de trabalho na Capital de São Paulo (CEP 01000-08499).
 
